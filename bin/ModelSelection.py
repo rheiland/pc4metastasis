@@ -1,6 +1,7 @@
 import numpy as np
 
 def AkaikeInfCriterion(loglikelihood,numParameters): # AIC
+    # print("Godness-of-fit: "+str(-2*loglikelihood)+" penalty term: " +str(2*numParameters))
     return -2*loglikelihood + 2*numParameters
 
 def AkaikeInfCriterion_C(loglikelihood,numParameters,dataSize): # second-order AIC
@@ -20,10 +21,10 @@ def evidence_ratio(Delta_IC):
     ER = np.exp(-0.5*Delta_IC_best)/np.exp(-0.5*Delta_IC)
     return ER
 
-def Model_Selection(Parameters, max_log_likelihood, dataSize, Constraints):
+def Model_Selection(Parameters, max_log_likelihood, dataSize, ModelsSize):
     AIC = []; AIC_c = []; BIC = []; AIC_RSS = [];
-    for modelID in range(len(Constraints)):
-        numParameters = len(Parameters[modelID])
+    for modelID in range(ModelsSize):
+        numParameters = Parameters[modelID].shape[1]
         AIC.append(AkaikeInfCriterion(max_log_likelihood[modelID],numParameters))
         AIC_c.append(AkaikeInfCriterion_C(max_log_likelihood[modelID],numParameters,dataSize))
         BIC.append(BayesInfCriterion(max_log_likelihood[modelID],numParameters,dataSize))
