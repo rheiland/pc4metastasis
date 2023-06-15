@@ -773,12 +773,14 @@ def GUI_DataViewer():
         if (View == '3D images'):
             display(widgets.HBox([slider_3Dimages, IntText_3Dimages]))
             with H1_plot:
-                plt.imshow(list_dics_images3D[0][imageID])
-                plt.axis('off')
+                fig, ax = plt.subplots(figsize=(8, 8))
+                ax.imshow(list_dics_images3D[0][imageID])
+                ax.axis('off')
                 plt.show()
             with H2_plot:
-                plt.imshow(list_dics_images3D[1][imageID])
-                plt.axis('off')
+                fig, ax = plt.subplots(figsize=(8, 8))
+                ax.imshow(list_dics_images3D[1][imageID])
+                ax.axis('off')
                 plt.show()
         dashboard = widgets.HBox([dashboardH1t,dashboardH2t])
         display(dashboard)
