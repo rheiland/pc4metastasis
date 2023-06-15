@@ -46,9 +46,9 @@ for modelID in [68,89]:
         Clusters_PhysiCell = 'data/Clusters_M%02d_H%d.pkl'%(modelID, hypoID)
         Images3D_PhysiCell = 'data/3Dimages_M%02d_H%d.pkl'%(modelID, hypoID)
         with open(Calib_PhysiCell, 'rb') as file:
-            dic_calib_PhysiCell['M%02d_H%d'%(modelID, hypoID)] = pd.read_pickle(file).to_dict('records')[0] # Pickle from pandas
+            dic_calib_PhysiCell['M%02d_H%d'%(modelID, hypoID)] = pickle.load(file) # Pickle from pandas
         with open(Clusters_PhysiCell, 'rb') as file:
-            dic_cluters_PhysiCell['M%02d_H%d'%(modelID, hypoID)] = pd.read_pickle(file) # Pickle from pandas
+            dic_cluters_PhysiCell['M%02d_H%d'%(modelID, hypoID)] = pickle.load(file) # Pickle from pandas
         with open(Images3D_PhysiCell, 'rb') as file:
             dic_images3D_PhysiCell['M%02d_H%d'%(modelID, hypoID)] = pickle.load(file)
 
