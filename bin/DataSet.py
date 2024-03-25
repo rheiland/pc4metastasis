@@ -239,9 +239,9 @@ def PlotResultBayes_mets(ModelID, Plot):
 
 def PlotSelection(dataframe, labelSimilarity='Max Likelihood', FontSize=None, FileName=None, title = True):
     fig, axs = plt.subplots(1, 2,figsize=(12, 4))
-    markerline1, stemline1, baseline1, = axs[0].stem(dataframe["ModelID"], dataframe["weight AIC"], label='AIC', linefmt="C0-", basefmt=" ", markerfmt="C0o", use_line_collection=True)
-    markerline2, stemline2, baseline2, = axs[0].stem(dataframe["ModelID"], dataframe["weight AICc"], label='AICc', linefmt="C3-", basefmt=" ", markerfmt="C3o", use_line_collection=True)
-    markerline3, stemline3, baseline3, = axs[0].stem(dataframe["ModelID"], dataframe["weight BIC"], label='BIC', linefmt="C2-", basefmt=" ", markerfmt="C2o", use_line_collection=True)
+    markerline1, stemline1, baseline1, = axs[0].stem(dataframe["ModelID"], dataframe["weight AIC"], label='AIC', linefmt="C0-", basefmt=" ", markerfmt="C0o")
+    markerline2, stemline2, baseline2, = axs[0].stem(dataframe["ModelID"], dataframe["weight AICc"], label='AICc', linefmt="C3-", basefmt=" ", markerfmt="C3o",)
+    markerline3, stemline3, baseline3, = axs[0].stem(dataframe["ModelID"], dataframe["weight BIC"], label='BIC', linefmt="C2-", basefmt=" ", markerfmt="C2o")
     # plt.setp(markerline1,markersize = 4.0)
     # plt.setp(markerline2,markersize = 3.0)
     # plt.setp(markerline3,markersize = 2.5)
